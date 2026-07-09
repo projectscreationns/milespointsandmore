@@ -1,0 +1,11 @@
+# Build output — Cloudflare Pages / CI regenerates this from source.
+public/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+
+# Local preview helper (machine-specific paths)
+.claude/launch.json

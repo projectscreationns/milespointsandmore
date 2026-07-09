@@ -1,0 +1,16 @@
+{
+  "title": "Miles, Points and More",
+  "tagline": "Churning credit cards, chasing points, and flying in seats I could never actually afford. US + Australia.",
+  "base_url": "https://milespointsandmore.pages.dev",
+  "author": "Navees",
+  "contact_email": "",
+  "footer_note": "",
+  "nav": [
+    ["Home", "/"],
+    ["Contact", "/contact/"],
+    ["Articles", "/articles/"]
+  ],
+  "socials": [],
+  "subscribe_embed": "",
+  "logo_svg": ""
+}

@@ -1,0 +1,17 @@
+{
+  "title": "Revolut vs Wise (TransferWise)",
+  "slug": "revolut-vs-wise-transferwise",
+  "date": "2023-02-10",
+  "updated": "2023-02-10",
+  "author": "Navees",
+  "read_time": "2 min read",
+  "cover_emoji": "🔁",
+  "tags": [
+    "Comparison",
+    "Transfers",
+    "Finance"
+  ],
+  "summary": "Which is actually cheaper for international transfers? I ran the same $10,000 through both. The gap surprised me.",
+  "body_html": "<p class='lead'>The question still remains — which one is better? Cheaper, faster, more reliable? I've used both, so let me break down the numbers so you don't have to.</p><h2>Rate and fees</h2><p>Let's send $10,000 AUD to USD. Revolut shows $6,758.11 USD. Note transferring is a 2-step process with Revolut — the exchange has no fee on weekdays (1% on weekends), and moving funds to a US account costs $5.39 USD. So you end up with <strong>$6,752.72 USD</strong>.</p><p>Wise's process is more straightforward. Sending the same $10,000 AUD, you receive a total of <strong>$6,693.95 USD</strong>. Total fees charged: 48.39 AUD. Honestly I'm appalled by the difference.</p><p>Revolut is significantly cheaper and offers a better rate. Even with the weekend 1% fee, Revolut still comes out on top. I tested USA to Germany too — same result, favouring Revolut.</p><h2>How do they make money?</h2><p>Revolut uses the mid-market rate and profits off the spread. Wise charges a sizeable upfront fee.</p><h2>Who's faster?</h2><p>For the transfer above: Wise quoted 2 business days, Revolut quoted same day. Revolut, clearly.</p><h2>The differences that actually matter</h2><p>Wise lets you lock in a rate for 36 hours and cancel if you change your mind — good for mitigating rate risk. Revolut uses live market rate. The other difference is currency coverage: Wise supports more currencies (convert to 52, send to 70 countries) than Revolut.</p><div class='callout'>For straight-up money transfers, Revolut beat Wise by enough that it's a no-brainer. Wise wins if you need rate lock-in or exotic currencies.</div>",
+  "cover": "/assets/img/revolut-wise.png"
+}
