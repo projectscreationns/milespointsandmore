@@ -214,11 +214,8 @@ img { max-width: 100%; height: auto; display: block; }
 .subscribe__form button:hover { background: var(--bg); color: var(--text); }
 
 /* ---- Footer ---- */
-.site-footer { padding: 20px 0 60px; }
-.site-footer__meta { text-align: center; color: var(--muted); }
-.site-footer__meta .brand__text { font-family: var(--serif); font-size: 1.4rem; color: var(--text); }
-.socials { margin: 8px 0; }
-.copyright { font-size: .8rem; margin-top: 12px; }
+.site-footer { padding: 24px 0 40px; }
+.copyright { text-align: center; color: var(--muted); font-size: .78rem; font-family: var(--sans); }
 
 @media (max-width: 600px) {
   .nav { gap: 20px; }
