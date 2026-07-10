@@ -270,37 +270,47 @@ def build_pages(site: dict, base: str) -> None:
         write(OUT / slug / "index.html", render(base, ctx))
 
 
-def card_row(card: dict) -> str:
+def deal_item(item: dict) -> str:
+    src = item.get("source", "")
+    src_html = f'<span class="deal__src">{escape(src)}</span>' if src else ""
+    meta = item.get("meta", "")
+    meta_html = f'<div class="deal__meta">{escape(meta)}</div>' if meta else ""
     return f"""
-      <div class="bcard">
-        <div class="bcard__head">
-          <span class="bcard__name">{escape(card.get('card',''))}</span>
-          <span class="bcard__issuer">{escape(card.get('issuer',''))}</span>
-        </div>
-        <div class="bcard__bonus">{escape(card.get('bonus',''))}</div>
-        <div class="bcard__meta">
-          <span><strong>Spend:</strong> {escape(card.get('spend',''))}</span>
-          <span><strong>Annual fee:</strong> {escape(card.get('annual_fee',''))}</span>
-        </div>
-        <p class="bcard__why">{escape(card.get('why',''))}</p>
-      </div>"""
+        <div class="deal">
+          <div class="deal__head">
+            <span class="deal__name">{escape(item.get('name',''))}</span>
+            {src_html}
+          </div>
+          <div class="deal__detail">{escape(item.get('detail',''))}</div>
+          {meta_html}
+          <p class="deal__why">{escape(item.get('why',''))}</p>
+        </div>"""
 
 
-def build_best_cards(site: dict, base: str) -> None:
-    data_path = CONTENT / "best-cards.json"
+def deal_section(section: dict) -> str:
+    items = "\n".join(deal_item(i) for i in section.get("items", []))
+    return f"""
+    <div class="deals__section">
+      <h2 class="deals__cat">{escape(section.get('title',''))}</h2>
+      {items}
+    </div>"""
+
+
+def build_best_deals(site: dict, base: str) -> None:
+    data_path = CONTENT / "best-deals.json"
     if not data_path.exists():
         return
     data = load_json(data_path)
-    tpl = read_template("best-cards.html")
-    ctx = page_context(site, "Best Cards", "Best Cards Right Now",
-                       "My current top 5 cashback and top 5 travel credit cards, kept up to date.",
-                       "/best-cards/")
+    tpl = read_template("best-deals.html")
+    ctx = page_context(site, "Deals", "Best Deals Right Now",
+                       "The best current deals from DansDeals and Doctor of Credit - bank bonuses, "
+                       "viral hacks, and cards at all-time-high offers. Kept tight and current.",
+                       "/deals/")
     ctx["intro"] = escape(data.get("intro", ""))
     ctx["updated"] = escape(human_date(parse_date(data.get("updated", ""))))
-    ctx["cashback"] = "\n".join(card_row(c) for c in data.get("cashback", []))
-    ctx["travel"] = "\n".join(card_row(c) for c in data.get("travel", []))
+    ctx["sections"] = "\n".join(deal_section(s) for s in data.get("sections", []))
     ctx["content"] = render(tpl, ctx)
-    write(OUT / "best-cards" / "index.html", render(base, ctx))
+    write(OUT / "deals" / "index.html", render(base, ctx))
 
 
 def build_feeds(site: dict, posts: list) -> None:
@@ -331,7 +341,7 @@ def build_feeds(site: dict, posts: list) -> None:
     write(OUT / "rss.xml", rss)
 
     # Sitemap
-    urls = ["/", "/articles/", "/best-cards/"]
+    urls = ["/", "/articles/", "/deals/"]
     urls += [p["url"] for p in posts]
     for path in sorted(PAGES_DIR.glob("*.html")):
         urls.append(f"/{path.stem}/")
@@ -371,7 +381,7 @@ def build() -> None:
     build_articles(site, posts, base)
     build_posts(site, posts, base)
     build_pages(site, base)
-    build_best_cards(site, base)
+    build_best_deals(site, base)
     build_feeds(site, posts)
     copy_assets()
     print(f"Built {len(posts)} posts -> {OUT}")

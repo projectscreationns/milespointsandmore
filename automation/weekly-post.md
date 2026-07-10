@@ -25,12 +25,21 @@ The two primary sources for everything are **DansDeals** and **Doctor of Credit*
 
 1. `git pull --rebase` in the repo (ignore errors). Then READ `STYLE.md` fully and obey the voice.
 
-2. **JOB A — refresh the Best Cards page.** Open `content/best-cards.json`. Re-check DoC + DansDeals
-   for the current best **cashback** and **travel** credit-card sign-up bonuses. Update each list so
-   it holds exactly the **top 5** for that category (no more). Bump a card up/down, swap one out for a
-   new best-ever/increased offer, fix any bonus/spend/fee that changed, drop anything expired. Keep the
-   `why` lines in Navees's voice (short, candid, numbers-first). Set `"updated"` to today's date. If
-   nothing changed this week, still set the date so readers see it's current. Keep exactly 5 per list.
+2. **JOB A — refresh the Deals board** (`content/best-deals.json`). This is a CURATED board of the
+   genuinely-good, not-everywhere plays from DansDeals + DoC — NOT a generic "top 5 credit cards" list.
+   The sections are:
+   - **🔥 The Hack Right Now** — the single viral/limited-time play everyone's on (e.g. the Paze
+     $100 + 10x thing). 1 item, sometimes 2. Drop it once it's dead.
+   - **🏦 Bank & Brokerage Bonuses** — DoC's signature high-value bank/brokerage bonuses that no card
+     blog features. ~4-6 items. Prefer the biggest and the low-effort/no-direct-deposit ones.
+   - **💳 Cards at All-Time-High Offers** — ONLY cards genuinely at a best-ever / increased offer
+     right now. ~3 items. If a card's offer isn't elevated, it doesn't belong here (no generic filler).
+   - **✈️ Points & Miles Plays** — timely transfer bonuses / targeted offers / elevated credits. ~2-3.
+   Re-check DoC (homepage + best-bank-account-bonuses + best-current-credit-card-sign-bonuses) and
+   DansDeals (search + RSS). Update numbers, swap in new hot plays, delete anything expired/mediocre.
+   Keep `why` lines in Navees's voice (short, candid, numbers-first) and `source` accurate
+   ("DansDeals" / "Doctor of Credit" / both). Keep it TIGHT — this page must never feel clogged with
+   obvious stuff. Set `"updated"` to today's date every run.
 
 3. **JOB B — article, ONLY for just-out news.** Scan DoC homepage + DansDeals (search + RSS) for
    something that genuinely **just dropped in the last few days** and is worth shouting about:
