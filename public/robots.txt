@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://milespointsandmore.pages.dev/sitemap.xml

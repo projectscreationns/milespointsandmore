@@ -1,0 +1,10 @@
+{
+  // Cloudflare static-assets deployment for Miles, Points and More.
+  // The site is pre-built into ./public (committed to the repo), so no build
+  // step is required — Cloudflare just uploads these files.
+  "name": "milespointsandmore",
+  "compatibility_date": "2025-01-01",
+  "assets": {
+    "directory": "./public"
+  }
+}

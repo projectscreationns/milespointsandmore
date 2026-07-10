@@ -1,5 +1,6 @@
-# Build output — Cloudflare Pages / CI regenerates this from source.
-public/
+# NOTE: public/ (the built site) IS committed so Cloudflare can deploy it directly
+# without needing Python in its build environment. `python build.py` regenerates it;
+# the weekly automation rebuilds and commits it automatically.
 
 # OS / editor cruft
 .DS_Store
