@@ -27,14 +27,15 @@ The two primary sources for everything are **DansDeals** and **Doctor of Credit*
 
 2. **JOB A — refresh the Deals board** (`content/best-deals.json`). This is a CURATED board of the
    genuinely-good, not-everywhere plays from DansDeals + DoC — NOT a generic "top 5 credit cards" list.
-   The sections are:
-   - **🔥 The Hack Right Now** — the single viral/limited-time play everyone's on (e.g. the Paze
-     $100 + 10x thing). 1 item, sometimes 2. Drop it once it's dead.
-   - **🏦 Bank & Brokerage Bonuses** — DoC's signature high-value bank/brokerage bonuses that no card
-     blog features. ~4-6 items. Prefer the biggest and the low-effort/no-direct-deposit ones.
-   - **💳 Cards at All-Time-High Offers** — ONLY cards genuinely at a best-ever / increased offer
-     right now. ~3 items. If a card's offer isn't elevated, it doesn't belong here (no generic filler).
-   - **✈️ Points & Miles Plays** — timely transfer bonuses / targeted offers / elevated credits. ~2-3.
+   The sections (keep TIGHT — ~6-8 deals total, this must match the audience, not a rich person):
+   - **🔥 The Hack Right Now** — the single viral/limited-time play everyone's on (e.g. Paze). 1-2 items.
+   - **💳 Best Sign-Up Bonuses** — card SUBs a NORMAL churner can actually hit with everyday spend
+     (~$24k/yr, $2k/mo). Prefer $0-fee big bonuses and genuine all-time-highs. ~3 items.
+   - **🇦🇺 Australia** — the author is AU-based: current Qantas/Velocity card bonuses, AU bank/savings
+     offers (UBank/ING/Macquarie style, Amex AU). ~1-2 items. Use pointhacks.com.au / ozbargain.com.au.
+   - **🏦 Easy Bank Bonuses** — ACHIEVABLE only: normal direct deposit, roughly $200-$500, low effort.
+     ~2 items. **DO NOT** include high-net-worth bonuses that need parking $50k-$250k+ (Citi $2k, HSBC
+     $7k, etc.) — the audience doesn't have that money and doesn't care. Keep it real and attainable.
    Re-check DoC (homepage + best-bank-account-bonuses + best-current-credit-card-sign-bonuses) and
    DansDeals (search + RSS). Update numbers, swap in new hot plays, delete anything expired/mediocre.
    Keep `why` lines in Navees's voice (short, candid, numbers-first) and `source` accurate
