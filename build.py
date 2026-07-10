@@ -270,30 +270,42 @@ def build_pages(site: dict, base: str) -> None:
         write(OUT / slug / "index.html", render(base, ctx))
 
 
-def deal_item(item: dict) -> str:
+def deal_card(item: dict, emoji: str) -> str:
+    """Render a deal in the site's standard blog-card format with a brand-logo tile."""
     src = item.get("source", "")
-    src_html = f'<span class="deal__src">{escape(src)}</span>' if src else ""
+    src_html = f'<div class="card__meta">{escape(src)}</div>' if src else ""
     meta = item.get("meta", "")
-    meta_html = f'<div class="deal__meta">{escape(meta)}</div>' if meta else ""
+    reqt_html = f'<div class="card__reqt">{escape(meta)}</div>' if meta else ""
+    img = item.get("image")
+    if img:
+        cover = (f'<div class="card__cover card__cover--logo">'
+                 f'<img src="{escape(img)}" alt="{escape(item.get("name",""))}" loading="lazy"></div>')
+    else:
+        ico = item.get("emoji") or emoji or "✈️"
+        cover = f'<div class="card__cover"><span class="card__img cover-fallback">{ico}</span></div>'
     return f"""
-        <div class="deal">
-          <div class="deal__head">
-            <span class="deal__name">{escape(item.get('name',''))}</span>
-            {src_html}
-          </div>
-          <div class="deal__detail">{escape(item.get('detail',''))}</div>
-          {meta_html}
-          <p class="deal__why">{escape(item.get('why',''))}</p>
-        </div>"""
+      <article class="card">
+        {cover}
+        <div class="card__body">
+          {src_html}
+          <h2 class="card__title">{escape(item.get('name',''))}</h2>
+          <div class="card__detail">{escape(item.get('detail',''))}</div>
+          {reqt_html}
+          <p class="card__summary">{escape(item.get('why',''))}</p>
+        </div>
+      </article>"""
 
 
 def deal_section(section: dict) -> str:
-    items = "\n".join(deal_item(i) for i in section.get("items", []))
+    title = section.get("title", "")
+    # first token is the category emoji; reuse it as each card's cover tile
+    emoji = title.split(" ", 1)[0] if title else "✈️"
+    cards = "\n".join(deal_card(i, emoji) for i in section.get("items", []))
     return f"""
-    <div class="deals__section">
-      <h2 class="deals__cat">{escape(section.get('title',''))}</h2>
-      {items}
-    </div>"""
+    <p class="section-label">{escape(title)}</p>
+    <section class="grid">
+      {cards}
+    </section>"""
 
 
 def build_best_deals(site: dict, base: str) -> None:

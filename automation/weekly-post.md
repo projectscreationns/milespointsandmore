@@ -40,6 +40,12 @@ The two primary sources for everything are **DansDeals** and **Doctor of Credit*
    Keep `why` lines in Navees's voice (short, candid, numbers-first) and `source` accurate
    ("DansDeals" / "Doctor of Credit" / both). Keep it TIGHT — this page must never feel clogged with
    obvious stuff. Set `"updated"` to today's date every run.
+   **Each item needs an `"image"` (brand logo)** so the Deals grid looks like the blog. For each brand,
+   reuse an existing file in `assets/img/deals/` if present, else download the logo once via
+   `https://unavatar.io/<brand-domain>` (e.g. unavatar.io/chase.com, /citi.com, /sofi.com,
+   /americanexpress.com, /aa.com, /ihg.com) into `assets/img/deals/<brand>.png` and set
+   `"image": "/assets/img/deals/<brand>.png"`. Prefer the highest-resolution result. If no logo is
+   available, omit `image` (the page falls back to a section emoji tile).
 
 3. **JOB B — article, ONLY for just-out news.** Scan DoC homepage + DansDeals (search + RSS) for
    something that genuinely **just dropped in the last few days** and is worth shouting about:
