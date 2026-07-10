@@ -270,6 +270,39 @@ def build_pages(site: dict, base: str) -> None:
         write(OUT / slug / "index.html", render(base, ctx))
 
 
+def card_row(card: dict) -> str:
+    return f"""
+      <div class="bcard">
+        <div class="bcard__head">
+          <span class="bcard__name">{escape(card.get('card',''))}</span>
+          <span class="bcard__issuer">{escape(card.get('issuer',''))}</span>
+        </div>
+        <div class="bcard__bonus">{escape(card.get('bonus',''))}</div>
+        <div class="bcard__meta">
+          <span><strong>Spend:</strong> {escape(card.get('spend',''))}</span>
+          <span><strong>Annual fee:</strong> {escape(card.get('annual_fee',''))}</span>
+        </div>
+        <p class="bcard__why">{escape(card.get('why',''))}</p>
+      </div>"""
+
+
+def build_best_cards(site: dict, base: str) -> None:
+    data_path = CONTENT / "best-cards.json"
+    if not data_path.exists():
+        return
+    data = load_json(data_path)
+    tpl = read_template("best-cards.html")
+    ctx = page_context(site, "Best Cards", "Best Cards Right Now",
+                       "My current top 5 cashback and top 5 travel credit cards, kept up to date.",
+                       "/best-cards/")
+    ctx["intro"] = escape(data.get("intro", ""))
+    ctx["updated"] = escape(human_date(parse_date(data.get("updated", ""))))
+    ctx["cashback"] = "\n".join(card_row(c) for c in data.get("cashback", []))
+    ctx["travel"] = "\n".join(card_row(c) for c in data.get("travel", []))
+    ctx["content"] = render(tpl, ctx)
+    write(OUT / "best-cards" / "index.html", render(base, ctx))
+
+
 def build_feeds(site: dict, posts: list) -> None:
     base_url = site["base_url"].rstrip("/")
     # RSS
@@ -298,7 +331,7 @@ def build_feeds(site: dict, posts: list) -> None:
     write(OUT / "rss.xml", rss)
 
     # Sitemap
-    urls = ["/", "/articles/"]
+    urls = ["/", "/articles/", "/best-cards/"]
     urls += [p["url"] for p in posts]
     for path in sorted(PAGES_DIR.glob("*.html")):
         urls.append(f"/{path.stem}/")
@@ -338,6 +371,7 @@ def build() -> None:
     build_articles(site, posts, base)
     build_posts(site, posts, base)
     build_pages(site, base)
+    build_best_cards(site, base)
     build_feeds(site, posts)
     copy_assets()
     print(f"Built {len(posts)} posts -> {OUT}")

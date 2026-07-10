@@ -7,8 +7,9 @@
   "footer_note": "",
   "nav": [
     ["Home", "/"],
-    ["Contact", "/contact/"],
-    ["Articles", "/articles/"]
+    ["Best Cards", "/best-cards/"],
+    ["Articles", "/articles/"],
+    ["Contact", "/contact/"]
   ],
   "socials": [],
   "subscribe_embed": "",
