@@ -158,9 +158,8 @@ def subscribe_block(site: dict) -> str:
     return f"""
     <section class="subscribe">
       <h3>Never Miss a New Post.</h3>
-      <p>New deals and posts, roughly once a week. No spam, ever.</p>
       <form class="subscribe__form" action="{action}" method="post">
-        <input type="email" name="email" placeholder="you@email.com" aria-label="Email address" required>
+        <input type="email" name="email" placeholder="Enter your email" aria-label="Email address" required>
         <button type="submit">Subscribe</button>
       </form>
     </section>"""

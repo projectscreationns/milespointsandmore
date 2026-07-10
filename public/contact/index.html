@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contact · Miles, Points and More</title>
+  <title>Contact Us · Miles, Points and More</title>
   <meta name="description" content="Get in touch with Miles, Points and More.">
   <link rel="canonical" href="https://milespointsandmore.ai-decathlon375.workers.dev/contact/">
   <meta property="og:site_name" content="Miles, Points and More">
-  <meta property="og:title" content="Contact">
+  <meta property="og:title" content="Contact Us">
   <meta property="og:description" content="Get in touch with Miles, Points and More.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://milespointsandmore.ai-decathlon375.workers.dev/contact/">
@@ -27,7 +27,7 @@
         <a href="/">Home</a>
 <a href="/deals/">Deals</a>
 <a href="/articles/">Articles</a>
-<a href="/contact/" class="active">Contact</a>
+<a href="/contact/">Contact</a>
         <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">◐</button>
       </nav>
     </div>
@@ -36,17 +36,26 @@
   <main class="wrap">
     <article class="post page">
   <header class="post__head">
-    <h1 class="post__title">Contact</h1>
+    <h1 class="post__title">Contact Us</h1>
   </header>
   <div class="post__body">
-    <p class="lead">Got a question, a deal tip, or just want to say hi? I'd love to hear from you.</p>
-<p>Best ways to reach me:</p>
-<ul>
-  <li><strong>Email:</strong> <a href="mailto:hello@milespointsandmore.com">hello@milespointsandmore.com</a> <em>(update this to your real address)</em></li>
-  <li><strong>Newsletter:</strong> drop your email in the box below and you'll get new posts as they go up.</li>
-</ul>
-<p>I read everything. If you've found a sign-up bonus or deal worth sharing — especially Australian ones — send it through and it might end up in a post.</p>
-<p class="disclaimer">None of this is financial advice. Everything here is simply an opinion. Always check current terms with the provider and consult a licensed financial adviser before making any financial decisions.</p>
+    <form class="cform" action="mailto:hello@milespointsandmore.com" method="post" enctype="text/plain">
+  <div class="cform__row">
+    <label class="cform__field">First Name
+      <input type="text" name="First Name" required>
+    </label>
+    <label class="cform__field">Last Name
+      <input type="text" name="Last Name">
+    </label>
+  </div>
+  <label class="cform__field">Email
+    <input type="email" name="Email" required>
+  </label>
+  <label class="cform__field">Message
+    <textarea name="Message" rows="6"></textarea>
+  </label>
+  <button class="cform__send" type="submit">Send</button>
+</form>
 
   </div>
 </article>
@@ -55,15 +64,6 @@
 
   <footer class="site-footer">
     <div class="wrap">
-      
-    <section class="subscribe">
-      <h3>Never Miss a New Post.</h3>
-      <p>New deals and posts, roughly once a week. No spam, ever.</p>
-      <form class="subscribe__form" action="#" method="post">
-        <input type="email" name="email" placeholder="you@email.com" aria-label="Email address" required>
-        <button type="submit">Subscribe</button>
-      </form>
-    </section>
       <div class="site-footer__meta">
         <p class="brand__text">Miles, Points and More</p>
         <p class="socials"></p>
