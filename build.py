@@ -137,8 +137,9 @@ def post_card(post: dict, featured: bool = False) -> str:
     meta = post["date_human"]
     if post["read_time"]:
         meta += "  ·  " + escape(post["read_time"])
+    cat = escape(post.get("category", "Finance"))
     return f"""
-      <article class="card">
+      <article class="card" data-category="{cat}">
         <a class="card__cover" href="{post['url']}">{cover_img(post, 'card__img')}</a>
         <div class="card__body">
           <div class="card__meta">{meta}</div>
@@ -156,7 +157,7 @@ def subscribe_block(site: dict) -> str:
     action = f"mailto:{email}?subject=Subscribe%20me" if email else "#"
     return f"""
     <section class="subscribe">
-      <h3>Never miss a new post</h3>
+      <h3>Never Miss a New Post.</h3>
       <p>New deals and posts, roughly once a week. No spam, ever.</p>
       <form class="subscribe__form" action="{action}" method="post">
         <input type="email" name="email" placeholder="you@email.com" aria-label="Email address" required>

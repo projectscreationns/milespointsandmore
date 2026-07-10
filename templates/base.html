@@ -58,6 +58,28 @@
         root.setAttribute("data-theme", next);
         localStorage.setItem("theme", next);
       });
+
+      // Category filter (Articles page)
+      var catbar = document.querySelector(".catbar");
+      if (catbar) {
+        var grid = document.getElementById("post-grid");
+        var empty = document.getElementById("cat-empty");
+        catbar.addEventListener("click", function (e) {
+          var b = e.target.closest(".catbar__item");
+          if (!b) return;
+          var f = b.getAttribute("data-filter");
+          catbar.querySelectorAll(".catbar__item").forEach(function (x) {
+            x.classList.toggle("active", x === b);
+          });
+          var shown = 0;
+          grid.querySelectorAll(".card").forEach(function (c) {
+            var show = f === "All Posts" || c.getAttribute("data-category") === f;
+            c.style.display = show ? "" : "none";
+            if (show) shown++;
+          });
+          if (empty) empty.hidden = shown > 0;
+        });
+      }
     })();
   </script>
 </body>

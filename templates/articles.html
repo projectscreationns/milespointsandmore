@@ -1,8 +1,13 @@
-<section class="page-head">
-  <h1>Articles</h1>
-  <p>Every post — deals, strategy, redemptions, and the occasional rant.</p>
-</section>
+<nav class="catbar" aria-label="Categories">
+  <button class="catbar__item active" data-filter="All Posts">All Posts</button>
+  <button class="catbar__item" data-filter="Travel">Travel</button>
+  <button class="catbar__item" data-filter="My Top 5">My Top 5</button>
+  <button class="catbar__item" data-filter="Art &amp; Culture">Art &amp; Culture</button>
+  <button class="catbar__item" data-filter="Finance">Finance</button>
+</nav>
 
-<section class="grid">
+<section class="grid" id="post-grid">
   {{ cards }}
 </section>
+
+<p class="catbar__empty" id="cat-empty" hidden>Posts Coming Soon<br><span>Explore other categories in this blog or check back later.</span></p>

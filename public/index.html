@@ -50,7 +50,7 @@
 <p class="section-label">Recent Posts</p>
 <section class="grid">
   
-      <article class="card">
+      <article class="card" data-category="Finance">
         <a class="card__cover" href="/post/sign-up-bonus-vs-correct-card-for-every-purchase/"><img class="card__img" src="/assets/img/sign-up-bonus.jpg" alt="Sign-up Bonus vs Using the Correct Card for Every Purchase" loading="lazy"></a>
         <div class="card__body">
           <div class="card__meta">Apr 25, 2025  ·  4 min read</div>
@@ -60,7 +60,7 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" data-category="Finance">
         <a class="card__cover" href="/post/what-should-your-first-credit-card-be/"><img class="card__img" src="/assets/img/first-card.jpg" alt="What Should Your First Credit Card Be?" loading="lazy"></a>
         <div class="card__body">
           <div class="card__meta">Mar 23, 2025  ·  1 min read</div>
@@ -70,7 +70,7 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" data-category="Finance">
         <a class="card__cover" href="/post/what-card-should-you-apply-for-next/"><img class="card__img" src="/assets/img/what-card-next.png" alt="What Card Should You Apply for Next?" loading="lazy"></a>
         <div class="card__body">
           <div class="card__meta">Mar 23, 2024  ·  3 min read</div>
@@ -80,7 +80,7 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" data-category="Finance">
         <a class="card__cover" href="/post/best-high-interest-savings-account-in-australia-march-2023/"><img class="card__img" src="/assets/img/savings-au.png" alt="Best High-Interest Savings Account in Australia (March 2023)" loading="lazy"></a>
         <div class="card__body">
           <div class="card__meta">Feb 10, 2023  ·  3 min read</div>
@@ -90,7 +90,7 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" data-category="Finance">
         <a class="card__cover" href="/post/how-to-not-pay-interest-on-your-credit-card/"><img class="card__img" src="/assets/img/no-interest.png" alt="How to Not Pay Interest on Your Credit Card" loading="lazy"></a>
         <div class="card__body">
           <div class="card__meta">Feb 10, 2023  ·  3 min read</div>
@@ -100,7 +100,7 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" data-category="Finance">
         <a class="card__cover" href="/post/revolut-vs-wise-transferwise/"><img class="card__img" src="/assets/img/revolut-wise.png" alt="Revolut vs Wise (TransferWise)" loading="lazy"></a>
         <div class="card__body">
           <div class="card__meta">Feb 10, 2023  ·  2 min read</div>
@@ -110,7 +110,7 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" data-category="Finance">
         <a class="card__cover" href="/post/ubank-30-for-signing-up/"><img class="card__img" src="/assets/img/ubank-1.png" alt="UBank $30 for Signing Up — Use 7JKDWG6" loading="lazy"></a>
         <div class="card__body">
           <div class="card__meta">Feb 10, 2023  ·  1 min read</div>
@@ -120,7 +120,7 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" data-category="Finance">
         <a class="card__cover" href="/post/all-the-stupid-rules-in-this-game/"><span class="card__img cover-fallback" role="img" aria-label="All the Stupid Rules in This Game">📕</span></a>
         <div class="card__body">
           <div class="card__meta">Mar 23, 2021  ·  2 min read</div>
@@ -130,7 +130,7 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" data-category="Finance">
         <a class="card__cover" href="/post/list-of-my-credit-cards-with-annual-fees/"><span class="card__img cover-fallback" role="img" aria-label="List of My Credit Cards with Annual Fees">🧾</span></a>
         <div class="card__body">
           <div class="card__meta">Feb 10, 2021  ·  4 min read</div>
@@ -147,7 +147,7 @@
     <div class="wrap">
       
     <section class="subscribe">
-      <h3>Never miss a new post</h3>
+      <h3>Never Miss a New Post.</h3>
       <p>New deals and posts, roughly once a week. No spam, ever.</p>
       <form class="subscribe__form" action="#" method="post">
         <input type="email" name="email" placeholder="you@email.com" aria-label="Email address" required>
@@ -175,6 +175,28 @@
         root.setAttribute("data-theme", next);
         localStorage.setItem("theme", next);
       });
+
+      // Category filter (Articles page)
+      var catbar = document.querySelector(".catbar");
+      if (catbar) {
+        var grid = document.getElementById("post-grid");
+        var empty = document.getElementById("cat-empty");
+        catbar.addEventListener("click", function (e) {
+          var b = e.target.closest(".catbar__item");
+          if (!b) return;
+          var f = b.getAttribute("data-filter");
+          catbar.querySelectorAll(".catbar__item").forEach(function (x) {
+            x.classList.toggle("active", x === b);
+          });
+          var shown = 0;
+          grid.querySelectorAll(".card").forEach(function (c) {
+            var show = f === "All Posts" || c.getAttribute("data-category") === f;
+            c.style.display = show ? "" : "none";
+            if (show) shown++;
+          });
+          if (empty) empty.hidden = shown > 0;
+        });
+      }
     })();
   </script>
 </body>
