@@ -302,8 +302,8 @@ def deal_section(section: dict) -> str:
     emoji = title.split(" ", 1)[0] if title else "✈️"
     cards = "\n".join(deal_card(i, emoji) for i in section.get("items", []))
     return f"""
-    <p class="section-label">{escape(title)}</p>
-    <section class="grid">
+    <p class="section-label section-label--left">{escape(title)}</p>
+    <section class="grid deals-grid">
       {cards}
     </section>"""
 

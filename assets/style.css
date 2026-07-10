@@ -183,9 +183,18 @@ img { max-width: 100%; height: auto; display: block; }
 .bestcards__note { text-align: center; color: var(--muted); font-size: .84rem; font-style: italic; margin: 10px 0 40px; }
 .card__detail { font-size: 1.05rem; font-weight: 800; color: var(--text); margin: 2px 0 4px; }
 .card__reqt { font-size: .82rem; color: var(--muted); margin-bottom: 8px; }
-/* brand-logo tile used as a deal card cover — never upscale, so every logo stays crisp */
-.card__cover--logo { background: #ffffff; display: flex; align-items: center; justify-content: center; padding: 20px; }
-.card__cover--logo img { width: auto; height: auto; max-width: 72%; max-height: 84px; object-fit: contain; image-rendering: auto; }
+/* compact deal cards: bordered, denser grid, tighter body */
+.deals-grid { grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 18px; padding-bottom: 20px; }
+.deals-grid .card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.deals-grid .card__cover--logo { border-radius: 0; }
+.deals-grid .card__body { padding: 14px 16px 16px; }
+.deals-grid .card__meta { font-size: .68rem; }
+.deals-grid .card__title { font-size: 1.08rem; margin-bottom: 6px; }
+.section-label--left { text-align: left; margin: 34px 0 14px; }
+/* brand-logo tile used as a deal card cover — short & tight so logos don't float in empty space */
+.card__cover--logo { background: #ffffff; display: flex; align-items: center; justify-content: center;
+  aspect-ratio: auto; height: 104px; padding: 12px; border-bottom: 1px solid var(--border); }
+.card__cover--logo img { width: auto; height: auto; max-width: 62%; max-height: 52px; object-fit: contain; image-rendering: auto; }
 
 /* ---- "More Posts" button (home) ---- */
 .more-posts { text-align: center; padding: 6px 0 50px; }
