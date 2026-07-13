@@ -80,7 +80,7 @@ def load_posts() -> list:
         data["date_human"] = human_date(data["_date"])
         data["slug"] = data.get("slug") or path.stem
         data["url"] = f"/post/{data['slug']}/"
-        data.setdefault("author", "Navees")
+        data.setdefault("author", "")
         data.setdefault("read_time", "")
         data.setdefault("cover_emoji", "✈️")
         data.setdefault("tags", [])

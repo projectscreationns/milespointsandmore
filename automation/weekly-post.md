@@ -38,7 +38,7 @@ The two primary sources for everything are **DansDeals** and **Doctor of Credit*
      $7k, etc.) — the audience doesn't have that money and doesn't care. Keep it real and attainable.
    Re-check DoC (homepage + best-bank-account-bonuses + best-current-credit-card-sign-bonuses) and
    DansDeals (search + RSS). Update numbers, swap in new hot plays, delete anything expired/mediocre.
-   Keep `why` lines in Navees's voice (short, candid, numbers-first) and `source` accurate
+   Keep `why` lines in the author's voice (short, candid, numbers-first) and `source` accurate
    ("DansDeals" / "Doctor of Credit" / both). Keep it TIGHT — this page must never feel clogged with
    obvious stuff. Set `"updated"` to today's date every run.
    **Each item needs an `"image"` (brand logo)** so the Deals grid looks like the blog. For each brand,
@@ -57,12 +57,12 @@ The two primary sources for everything are **DansDeals** and **Doctor of Credit*
    this run** — Job A alone is a fine week. Do not manufacture news. Evergreen "best card" lists belong
    on the Best Cards page, NOT in an article.
 
-4. If Job B is warranted: write ONE short article in Navees's voice, in your OWN words (don't copy
+4. If Job B is warranted: write ONE short article in the author's voice, in your OWN words (don't copy
    DansDeals/DoC text). First-person, candid, numbers-driven, short paragraphs, a
    `<div class='callout'>` bottom line, and lead with the freshness ("just dropped", "as of today").
    Then self-review against STYLE.md and rewrite anything that sounds generic. Save it as
    `content/posts/<YYYY-MM-DD>-<slug>.json` (schema: title, slug, date=today, updated=today,
-   author "Navees", read_time, cover_emoji, tags, summary, body_html with single-quoted attributes;
+   no author field (the site shows no byline), read_time, cover_emoji, tags, summary, body_html with single-quoted attributes;
    do NOT paste the disclaimer — the footer adds it; add a "cover" only if you have a real
    non-copyright image URL, else omit).
 

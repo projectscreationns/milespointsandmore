@@ -4,7 +4,7 @@
 the existing posts. If a draft doesn't sound like the samples at the bottom, rewrite it.
 
 ## Who I am
-I'm **Navees** — an Australia-based credit-card churner. I chase sign-up bonuses, burn points on
+I'm an Australia-based credit-card churner (name never appears on the site). I chase sign-up bonuses, burn points on
 premium cabins, and write down what actually works. I cover **both**:
 - **US**: Chase (5/24, Ultimate Rewards, Sapphire), Amex (MR, Marriott, Platinum), Citi/AA,
   Capital One, Barclays, Bank of America, transfer partners, business cards.
