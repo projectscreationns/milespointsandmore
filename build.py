@@ -272,14 +272,30 @@ def build_pages(site: dict, base: str) -> None:
         write(OUT / slug / "index.html", render(base, ctx))
 
 
+def card_mock(item: dict) -> str:
+    """A credit-card-shaped product tile: brand colors, chip, issuer logo, product name."""
+    colors = item.get("card_colors") or ["#1d1f2b", "#0e0f17"]
+    c1, c2 = (colors + colors)[:2]
+    light = " ccard--light" if item.get("card_light") else ""
+    logo = item.get("image")
+    logo_html = (f'<span class="ccard__logo"><img src="{escape(logo)}" alt="" loading="lazy"></span>'
+                 if logo else "")
+    name = item.get("card_name") or item.get("name", "")
+    return (f'<div class="ccard{light}" style="--c1:{c1};--c2:{c2}">'
+            f'{logo_html}<span class="ccard__chip"></span>'
+            f'<span class="ccard__name">{escape(name)}</span></div>')
+
+
 def deal_card(item: dict, emoji: str) -> str:
-    """Deal card: clean brand-logo tile cover (distinct per brand, no stock photos)."""
+    """Deal card: card-art tile when colors are given, else brand-logo tile."""
     src = item.get("source", "")
     src_html = f'<div class="card__meta">{escape(src)}</div>' if src else ""
     meta = item.get("meta", "")
     reqt_html = f'<div class="card__reqt">{escape(meta)}</div>' if meta else ""
     logo = item.get("image")
-    if logo:
+    if item.get("card_colors"):
+        cover = f'<div class="card__cover card__cover--mock">{card_mock(item)}</div>'
+    elif logo:
         cover = (f'<div class="card__cover card__cover--logo">'
                  f'<img src="{escape(logo)}" alt="{escape(item.get("name",""))}" loading="lazy"></div>')
     else:

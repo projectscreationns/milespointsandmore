@@ -11,7 +11,12 @@
           "meta": "Barely any effort · going viral on DansDeals",
           "why": "Add your cards to Paze, pay with it where it's accepted, credits are already posting. Do it before it dies.",
           "source": "DansDeals",
-          "image": "/assets/img/deals/paze.png"
+          "image": "/assets/img/deals/paze.png",
+          "card_name": "Paze",
+          "card_colors": [
+            "#6f42c1",
+            "#432a7e"
+          ]
         }
       ]
     },
@@ -24,7 +29,13 @@
           "meta": "$8k spend in 3 months · best offer ever",
           "why": "No annual fee, biggest bonus this card's ever had, and a business card doesn't touch your 5/24. Easiest grand going.",
           "source": "DansDeals + DoC",
-          "image": "/assets/img/deals/chase.ico"
+          "image": "/assets/img/deals/chase.ico",
+          "card_name": "Ink Business Cash",
+          "card_colors": [
+            "#f7f8f8",
+            "#e3e8ec"
+          ],
+          "card_light": true
         },
         {
           "name": "Chase Sapphire Preferred",
@@ -32,7 +43,12 @@
           "meta": "$5k spend in 3 months · all-time high",
           "why": "The travel-points card I tell everyone to start with, and it's at the top of its offer range right now.",
           "source": "Doctor of Credit",
-          "image": "/assets/img/deals/chase.ico"
+          "image": "/assets/img/deals/chase.ico",
+          "card_name": "Sapphire Preferred",
+          "card_colors": [
+            "#14508f",
+            "#0b2f5e"
+          ]
         },
         {
           "name": "Chase IHG Rewards Premier",
@@ -40,7 +56,12 @@
           "meta": "$6k spend in 3 months · increased",
           "why": "Elevated bonus plus a free anniversary night every year that pays the fee back on its own.",
           "source": "Doctor of Credit",
-          "image": "/assets/img/deals/ihg.png"
+          "image": "/assets/img/deals/ihg.png",
+          "card_name": "IHG Rewards Premier",
+          "card_colors": [
+            "#23253a",
+            "#101120"
+          ]
         }
       ]
     },
@@ -53,7 +74,12 @@
           "meta": "$5k spend in 3 months · apply by 28 July · $450 fee",
           "why": "First-timers (no Qantas card in 24 months) get another 10k on top. The $450 travel credit basically cancels the fee, so the points are close to free.",
           "source": "Point Hacks",
-          "image": "/assets/img/deals/qantas.png"
+          "image": "/assets/img/deals/qantas.png",
+          "card_name": "Qantas Amex Ultimate",
+          "card_colors": [
+            "#1b1c20",
+            "#000000"
+          ]
         }
       ]
     },
@@ -66,7 +92,12 @@
           "meta": "One direct deposit, no minimum · anyone online",
           "why": "About as easy as free money gets - open it, set one direct deposit, wait. No huge balance needed.",
           "source": "Doctor of Credit",
-          "image": "/assets/img/deals/chase.ico"
+          "image": "/assets/img/deals/chase.ico",
+          "card_name": "Chase Total Checking",
+          "card_colors": [
+            "#117aca",
+            "#0b5591"
+          ]
         },
         {
           "name": "SoFi",
@@ -74,7 +105,12 @@
           "meta": "$3,000 direct deposit",
           "why": "Straightforward $300 for routing a direct deposit through it for a bit. Stack a shopping portal and it's even more.",
           "source": "Doctor of Credit",
-          "image": "/assets/img/deals/sofi2.png"
+          "image": "/assets/img/deals/sofi2.png",
+          "card_name": "SoFi Checking",
+          "card_colors": [
+            "#00a5b8",
+            "#02737f"
+          ]
         }
       ]
     }

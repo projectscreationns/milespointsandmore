@@ -41,12 +41,15 @@ The two primary sources for everything are **DansDeals** and **Doctor of Credit*
    Keep `why` lines in the author's voice (short, candid, numbers-first) and `source` accurate
    ("DansDeals" / "Doctor of Credit" / both). Keep it TIGHT — this page must never feel clogged with
    obvious stuff. Set `"updated"` to today's date every run.
-   **Each item needs an `"image"` (brand logo)** so the Deals grid looks like the blog. For each brand,
-   reuse an existing file in `assets/img/deals/` if present, else download the logo once via
-   `https://unavatar.io/<brand-domain>` (e.g. unavatar.io/chase.com, /citi.com, /sofi.com,
-   /americanexpress.com, /aa.com, /ihg.com) into `assets/img/deals/<brand>.png` and set
-   `"image": "/assets/img/deals/<brand>.png"`. Prefer the highest-resolution result. If no logo is
-   available, omit `image` (the page falls back to a section emoji tile).
+   **Each item needs card-art fields** so the Deals grid shows a credit-card-shaped product tile:
+   - `"card_name"`: short product name shown on the card face (e.g. "Sapphire Preferred").
+   - `"card_colors"`: two hex colors [start, end] for the card's gradient — pick a tasteful pair that
+     EVOKES the real product's look (Sapphire = deep blues, Amex Plat = silvers, Ink Cash = off-whites
+     with `"card_light": true` so the name renders dark). Never copy/hotlink real card art images.
+   - `"image"`: the brand logo shown as a small badge on the card. Reuse an existing file in
+     `assets/img/deals/` if present, else download once via `https://unavatar.io/<brand-domain>`
+     (e.g. unavatar.io/chase.com, /sofi.com, /americanexpress.com) into `assets/img/deals/<brand>.png`.
+   If a deal has no card_colors, the page falls back to a plain logo tile; if no image either, an emoji tile.
 
 3. **JOB B — article, ONLY for just-out news.** Scan DoC homepage + DansDeals (search + RSS) for
    something that genuinely **just dropped in the last few days** and is worth shouting about:
