@@ -216,7 +216,7 @@ def build_home(site: dict, posts: list, base: str) -> None:
     ctx = page_context(site, "Home", site["title"], site["tagline"], "/")
     ctx["featured"] = featured
     ctx["cards"] = rest
-    ctx["hero_img"] = site.get("hero_image", "/assets/img/point-of-this.jpg")
+    ctx["hero_img"] = site.get("hero_image", "/assets/img/hero.jpg")
     ctx["hero_headline"] = escape(site.get("hero_headline", "Fly in seats I could never actually afford."))
     content = render(tpl, ctx)
     ctx["content"] = content
@@ -272,29 +272,19 @@ def build_pages(site: dict, base: str) -> None:
         write(OUT / slug / "index.html", render(base, ctx))
 
 
-def section_photo(title: str) -> str:
-    """Premium category photo used as the deal-card cover, chosen by section."""
-    t = title.lower()
-    if "hack" in t:
-        return "/assets/img/deals/photo-phone.jpg"
-    if "australia" in t:
-        return "/assets/img/deals/photo-plane.jpg"
-    if "bank" in t:
-        return "/assets/img/deals/photo-money.jpg"
-    return "/assets/img/deals/photo-card1.jpg"  # card sign-up bonuses (default)
-
-
-def deal_card(item: dict, emoji: str, photo: str) -> str:
-    """Deal card: premium category photo cover + small brand-logo badge."""
+def deal_card(item: dict, emoji: str) -> str:
+    """Deal card: clean brand-logo tile cover (distinct per brand, no stock photos)."""
     src = item.get("source", "")
     src_html = f'<div class="card__meta">{escape(src)}</div>' if src else ""
     meta = item.get("meta", "")
     reqt_html = f'<div class="card__reqt">{escape(meta)}</div>' if meta else ""
     logo = item.get("image")
-    badge = (f'<span class="card__logobadge"><img src="{escape(logo)}" alt="" loading="lazy"></span>'
-             if logo else "")
-    cover = (f'<div class="card__cover card__cover--photo" '
-             f'style="background-image:url(\'{escape(photo)}\')">{badge}</div>')
+    if logo:
+        cover = (f'<div class="card__cover card__cover--logo">'
+                 f'<img src="{escape(logo)}" alt="{escape(item.get("name",""))}" loading="lazy"></div>')
+    else:
+        ico = item.get("emoji") or emoji or "✈️"
+        cover = f'<div class="card__cover"><span class="card__img cover-fallback">{ico}</span></div>'
     return f"""
       <article class="card">
         {cover}
@@ -311,8 +301,7 @@ def deal_card(item: dict, emoji: str, photo: str) -> str:
 def deal_section(section: dict) -> str:
     title = section.get("title", "")
     emoji = title.split(" ", 1)[0] if title else "✈️"
-    photo = section_photo(title)
-    cards = "\n".join(deal_card(i, emoji, photo) for i in section.get("items", []))
+    cards = "\n".join(deal_card(i, emoji) for i in section.get("items", []))
     return f"""
     <p class="section-label section-label--left">{escape(title)}</p>
     <section class="grid deals-grid">
