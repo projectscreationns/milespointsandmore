@@ -49,6 +49,8 @@
 
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
+/* the full-bleed hero uses 100vw, which overflows by the scrollbar width — clip it */
+html, body { overflow-x: hidden; }
 body {
   margin: 0;
   font-family: var(--sans);
