@@ -51,6 +51,16 @@ premium cabins, and write down what actually works. I cover **both**:
 - Bottom line: `<div class='callout'>…</div>`
 - Tables for card/rate comparisons: `<table><thead>…</thead><tbody>…</tbody></table>`
 
+## Make it easy to grasp (visual explainers — use these instead of walls of text)
+Too much text is hard to follow; too many numbers in prose is worse. When a post explains a
+process or a money comparison, show it visually:
+- **Numbered step cards** (for any "here's how to do it" — 3–4 steps max, one line each):
+  `<div class='steps'><div class='step'><strong>Title</strong><span>one-line explanation</span></div>…</div>`
+- **Before/after money box** (the single most persuasive thing — two big numbers side by side):
+  `<div class='compare'><div class='cmp cmp--bad'><div class='cmp__label'>Do nothing</div><div class='cmp__num'>~$2,500</div><div class='cmp__note'>interest over 12 months</div></div><div class='cmp cmp--good'><div class='cmp__label'>Balance transfer</div><div class='cmp__num'>$300</div><div class='cmp__note'>one-time fee, then $0</div></div></div>`
+- Rule of thumb: lead with the visual, then keep each section's prose to 2–3 short sentences.
+  One big number beats a paragraph of arithmetic. See the "How to Not Pay Interest" post as the model.
+
 ## Real samples (match this energy)
 
 > "There are way too many rules to look out for when churning for credit card points."

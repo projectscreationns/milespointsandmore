@@ -188,6 +188,26 @@ img { max-width: 100%; height: auto; display: block; }
 .post__body th, .post__body td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; }
 .post__body th { font-weight: 700; }
 .callout { border-left: 3px solid var(--line); padding: 4px 18px; margin: 1.5em 0; font-weight: 600; }
+
+/* ---- In-post visual explainers (steps / compare / big numbers) ---- */
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 1.6em 0; counter-reset: step; }
+.steps .step { border: 1px solid var(--border); border-radius: 12px; padding: 14px 14px 16px; text-align: center; font-size: .92rem; line-height: 1.35; }
+.steps .step::before { counter-increment: step; content: counter(step); display: block; width: 34px; height: 34px; line-height: 34px; margin: 0 auto 10px; border-radius: 50%; background: var(--line); color: var(--bg); font-weight: 800; font-family: var(--sans); }
+.steps .step strong { display: block; margin-bottom: 4px; font-size: .98rem; }
+.steps .step span { color: var(--muted); font-size: .85rem; }
+
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 1.6em 0; }
+.compare .cmp { border: 1px solid var(--border); border-radius: 12px; padding: 18px 16px; text-align: center; }
+.compare .cmp--bad { border-color: #c0392b55; }
+.compare .cmp--good { border-color: #0b6b5e66; }
+.compare .cmp__label { font-family: var(--sans); text-transform: uppercase; letter-spacing: .1em; font-size: .72rem; color: var(--muted); margin-bottom: 8px; }
+.compare .cmp__num { font-family: var(--sans); font-weight: 800; font-size: 1.9rem; line-height: 1.1; }
+.compare .cmp--bad .cmp__num { color: #c0392b; }
+.compare .cmp--good .cmp__num { color: #0b6b5e; }
+:root[data-theme="dark"] .compare .cmp--good .cmp__num { color: #2fbfa8; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .compare .cmp--good .cmp__num { color: #2fbfa8; } }
+.compare .cmp__note { color: var(--muted); font-size: .85rem; margin-top: 6px; }
+@media (max-width: 520px) { .compare { grid-template-columns: 1fr; } }
 .post__foot { margin: 44px 0 10px; padding-top: 22px; border-top: 1px solid var(--border); text-align: center; }
 .post__disclaimer, .disclaimer { color: var(--muted); font-size: .82rem; font-style: italic; }
 .back-link { display: inline-block; margin-top: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; font-size: .78rem; }
