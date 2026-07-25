@@ -6,17 +6,14 @@
       "title": "🔥 The Hack Right Now",
       "items": [
         {
-          "name": "Paze: up to $100 back + 10x points",
-          "detail": "Up to $100 back per card + 10x points",
-          "meta": "Barely any effort · going viral on DansDeals",
-          "why": "Add your cards to Paze, pay with it where it's accepted, credits are already posting. Do it before it dies.",
+          "name": "Paze: spend $10, get $10 back",
+          "detail": "$10 back, up to 10x = $100",
+          "meta": "Spend $10 per transaction · ends 10 September 2026",
+          "why": "Free money for using a checkout button you'd have clicked anyway. Ten separate $10 spends and that's $100 back as statement credit. Do it before it dies.",
           "source": "DansDeals",
           "image": "/assets/img/deals/paze.png",
           "card_name": "Paze",
-          "card_colors": [
-            "#6f42c1",
-            "#432a7e"
-          ]
+          "banner_image": "/assets/img/deals/paze-1010.png"
         }
       ]
     },

@@ -315,7 +315,12 @@ def deal_card(item: dict, emoji: str) -> str:
     reqt_html = f'<div class="card__reqt">{escape(meta)}</div>' if meta else ""
     logo = item.get("image")
     real = real_card_image(item)
-    if real:
+    banner = item.get("banner_image")
+    if banner:
+        cover = (f'<div class="card__cover card__cover--banner" '
+                 f'style="background-image:url(\'{escape(banner)}\')" '
+                 f'role="img" aria-label="{escape(item.get("name",""))}"></div>')
+    elif real:
         alt = escape(item.get("card_name") or item.get("name", ""))
         cover = (f'<div class="card__cover card__cover--mock">'
                  f'<img class="ccard-img" src="{escape(real)}" alt="{alt}" loading="lazy"></div>')
