@@ -259,7 +259,7 @@ img { max-width: 100%; height: auto; display: block; }
 .ccard--light .ccard__name { color: #17181c; text-shadow: none; }
 .ccard--light { border: 1px solid #d8d8d4; }
 /* a REAL card image (transparent PNG) — drop-shadow follows the card's own shape */
-.ccard-img { width: auto; height: auto; max-width: 82%; max-height: 142px; object-fit: contain;
+.ccard-img { width: auto; height: auto; max-width: 78%; max-height: 134px; object-fit: contain;
   filter: drop-shadow(0 8px 16px rgba(0,0,0,.30)) drop-shadow(0 2px 4px rgba(0,0,0,.16));
   transform: rotate(-3.5deg); transition: transform .25s ease; }
 .card:hover .ccard-img { transform: rotate(0deg) scale(1.04); }

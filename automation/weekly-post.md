@@ -41,7 +41,20 @@ The two primary sources for everything are **DansDeals** and **Doctor of Credit*
    Keep `why` lines in the author's voice (short, candid, numbers-first) and `source` accurate
    ("DansDeals" / "Doctor of Credit" / both). Keep it TIGHT — this page must never feel clogged with
    obvious stuff. Set `"updated"` to today's date every run.
-   **Each item needs card-art fields** so the Deals grid shows a credit-card-shaped product tile:
+   **CARD ART — prefer the real card image.** When you add a credit card to the board, grab the
+   issuer's own card image and save it to `assets/img/cards/<card-name-slug>.png` (slug = card_name
+   lowercased with dashes, e.g. "Sapphire Preferred" -> `sapphire-preferred.png`). The build picks it
+   up automatically. Known-good sources:
+   - **Chase:** `https://creditcards.chase.com/content/dam/jpmc-marketplace/card-art/<card>_card.png`
+     (e.g. `sapphire_preferred_card.png`, `ink_cash_card.png`, `ihg_premier_card.png`). If a guess
+     404s, WebFetch the card's product page and read the `/content/dam/jpmc-marketplace/card-art/...`
+     URL out of the HTML.
+   - **Amex AU:** `https://icm.aexp-static.com/Internet/internationalcardshop/en_au/images/cards/<Card_Name>.png`
+     (e.g. `The_Qantas_American_Express_Ultimate_Card.png`). US cards use the `en_us` path.
+   - Otherwise: WebFetch the issuer's product page and pull the card image URL from it.
+   Transparent PNGs look best. If no real image can be found, fall back to the styled tile fields below.
+
+   **Styled-tile fallback fields** (used only when there's no real card image):
    - `"card_name"`: short product name shown on the card face (e.g. "Sapphire Preferred").
    - `"card_colors"`: two hex colors [start, end] for the card's gradient — pick a tasteful pair that
      EVOKES the real product's look (Sapphire = deep blues, Amex Plat = silvers, Ink Cash = off-whites
