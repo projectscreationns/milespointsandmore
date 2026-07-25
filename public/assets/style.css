@@ -258,6 +258,11 @@ img { max-width: 100%; height: auto; display: block; }
   text-transform: uppercase; line-height: 1.25; text-shadow: 0 1px 2px rgba(0,0,0,.35); }
 .ccard--light .ccard__name { color: #17181c; text-shadow: none; }
 .ccard--light { border: 1px solid #d8d8d4; }
+/* a REAL supplied card image, shown in the same slot as the styled tile */
+.ccard-img { width: auto; height: auto; max-width: 74%; max-height: 138px; object-fit: contain;
+  border-radius: 10px; box-shadow: 0 10px 22px rgba(0,0,0,.26), 0 2px 5px rgba(0,0,0,.16);
+  transform: rotate(-3.5deg); transition: transform .25s ease; }
+.card:hover .ccard-img { transform: rotate(0deg) scale(1.03); }
 
 /* ---- "More Posts" button (home) ---- */
 .more-posts { text-align: center; padding: 6px 0 50px; }

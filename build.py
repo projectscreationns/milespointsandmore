@@ -286,14 +286,40 @@ def card_mock(item: dict) -> str:
             f'<span class="ccard__name">{escape(name)}</span></div>')
 
 
+def real_card_image(item: dict):
+    """Path to a real card image if one has been supplied, else None.
+
+    Drop a file in assets/img/cards/ named after the card (e.g. sapphire-preferred.png)
+    and it is used automatically. Or set "card_image" on the deal explicitly.
+    Use only images you have the right to publish (issuer affiliate/press kits, or your
+    own photo of the card).
+    """
+    explicit = item.get("card_image")
+    if explicit:
+        return explicit
+    for key in (item.get("card_name"), item.get("name")):
+        if not key:
+            continue
+        slug = re.sub(r"[^a-z0-9]+", "-", key.lower()).strip("-")
+        for ext in ("png", "jpg", "jpeg", "webp", "avif"):
+            if (ASSETS / "img" / "cards" / f"{slug}.{ext}").exists():
+                return f"/assets/img/cards/{slug}.{ext}"
+    return None
+
+
 def deal_card(item: dict, emoji: str) -> str:
-    """Deal card: card-art tile when colors are given, else brand-logo tile."""
+    """Deal card: real card image if supplied, else styled card tile, else logo tile."""
     src = item.get("source", "")
     src_html = f'<div class="card__meta">{escape(src)}</div>' if src else ""
     meta = item.get("meta", "")
     reqt_html = f'<div class="card__reqt">{escape(meta)}</div>' if meta else ""
     logo = item.get("image")
-    if item.get("card_colors"):
+    real = real_card_image(item)
+    if real:
+        alt = escape(item.get("card_name") or item.get("name", ""))
+        cover = (f'<div class="card__cover card__cover--mock">'
+                 f'<img class="ccard-img" src="{escape(real)}" alt="{alt}" loading="lazy"></div>')
+    elif item.get("card_colors"):
         cover = f'<div class="card__cover card__cover--mock">{card_mock(item)}</div>'
     elif logo:
         cover = (f'<div class="card__cover card__cover--logo">'
