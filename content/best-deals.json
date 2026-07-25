@@ -92,12 +92,8 @@
           "meta": "One direct deposit, no minimum · anyone online",
           "why": "About as easy as free money gets - open it, set one direct deposit, wait. No huge balance needed.",
           "source": "Doctor of Credit",
-          "image": "/assets/img/deals/chase.ico",
-          "card_name": "Chase Total Checking",
-          "card_colors": [
-            "#117aca",
-            "#0b5591"
-          ]
+          "image": "/assets/img/deals/chase-logo.svg",
+          "card_name": "Chase Total Checking"
         },
         {
           "name": "SoFi",
@@ -105,12 +101,8 @@
           "meta": "$3,000 direct deposit",
           "why": "Straightforward $300 for routing a direct deposit through it for a bit. Stack a shopping portal and it's even more.",
           "source": "Doctor of Credit",
-          "image": "/assets/img/deals/sofi2.png",
-          "card_name": "SoFi Checking",
-          "card_colors": [
-            "#00a5b8",
-            "#02737f"
-          ]
+          "image": "/assets/img/deals/sofi-logo.svg",
+          "card_name": "SoFi Checking"
         }
       ]
     }
