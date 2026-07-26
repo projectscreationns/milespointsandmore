@@ -208,6 +208,38 @@ img { max-width: 100%; height: auto; display: block; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .compare .cmp--good .cmp__num { color: #2fbfa8; } }
 .compare .cmp__note { color: var(--muted); font-size: .85rem; margin-top: 6px; }
 @media (max-width: 520px) { .compare { grid-template-columns: 1fr; } }
+
+/* ---- Flow diagram: where your money actually sits, and what's covered ---- */
+.flow { margin: 1.8em 0; }
+.flow__row { border: 1px solid var(--border); border-radius: 12px; padding: 16px 16px 14px; margin-bottom: 14px; }
+.flow__label { font-family: var(--sans); font-weight: 800; font-size: .74rem; text-transform: uppercase;
+  letter-spacing: .12em; color: var(--muted); margin-bottom: 14px; }
+.flow__chain { display: flex; align-items: stretch; gap: 0; flex-wrap: nowrap; }
+.flow__node { flex: 1 1 0; min-width: 0; border: 1.5px solid var(--border); border-radius: 10px;
+  padding: 10px 8px; text-align: center; background: var(--surface); }
+.flow__node b { display: block; font-family: var(--sans); font-weight: 800; font-size: .86rem; line-height: 1.2; }
+.flow__node span { display: block; font-size: .7rem; color: var(--muted); margin-top: 3px; line-height: 1.25; }
+.flow__node--fail { border-color: #c0392b; border-width: 2px; background: color-mix(in srgb, #c0392b 9%, var(--surface)); }
+.flow__node--fail b { color: #c0392b; }
+.flow__arrow { flex: 0 0 26px; display: flex; align-items: center; justify-content: center;
+  color: var(--muted); font-size: 1rem; }
+/* the FDIC coverage bracket */
+.flow__cover { display: flex; margin-top: 8px; }
+.flow__cover-spacer { flex: 1 1 0; min-width: 0; }
+.flow__cover-gap { flex: 0 0 26px; }
+.flow__cover-band { flex: 1 1 0; min-width: 0; border-top: 2px solid var(--muted); padding-top: 5px;
+  text-align: center; font-size: .68rem; color: var(--muted); font-family: var(--sans);
+  text-transform: uppercase; letter-spacing: .07em; }
+.flow__cover-band--ok { border-color: #0b6b5e; color: #0b6b5e; font-weight: 800; }
+:root[data-theme="dark"] .flow__cover-band--ok { border-color: #2fbfa8; color: #2fbfa8; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .flow__cover-band--ok { border-color:#2fbfa8; color:#2fbfa8; } }
+.flow__verdict { font-family: var(--sans); font-size: .88rem; margin-top: 12px; padding-top: 10px;
+  border-top: 1px dashed var(--border); }
+@media (max-width: 620px) {
+  .flow__chain { flex-direction: column; }
+  .flow__arrow { flex: 0 0 22px; transform: rotate(90deg); }
+  .flow__cover { display: none; }
+}
 .post__foot { margin: 44px 0 10px; padding-top: 22px; border-top: 1px solid var(--border); text-align: center; }
 .post__disclaimer, .disclaimer { color: var(--muted); font-size: .82rem; font-style: italic; }
 .back-link { display: inline-block; margin-top: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; font-size: .78rem; }
