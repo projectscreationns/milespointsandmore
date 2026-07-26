@@ -235,6 +235,27 @@ img { max-width: 100%; height: auto; display: block; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .flow__cover-band--ok { border-color:#2fbfa8; color:#2fbfa8; } }
 .flow__verdict { font-family: var(--sans); font-size: .88rem; margin-top: 12px; padding-top: 10px;
   border-top: 1px dashed var(--border); }
+
+/* pooled-account diagram */
+.pool { display: flex; align-items: center; gap: 0; }
+.pool__stack { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.pool__person { border: 1.5px solid var(--border); border-radius: 8px; padding: 7px 9px;
+  font-family: var(--sans); font-size: .76rem; background: var(--surface); }
+.pool__vault { flex: 1 1 0; min-width: 0; border: 2px solid var(--line); border-radius: 10px;
+  padding: 14px 10px; text-align: center; background: var(--surface); }
+.pool__vault b { display: block; font-family: var(--sans); font-weight: 800; font-size: .9rem; }
+.pool__vault span { display: block; font-size: .72rem; color: var(--muted); margin-top: 4px; line-height: 1.3; }
+@media (max-width: 620px) { .pool { flex-direction: column; } .pool__stack { width: 100%; } .pool__vault { width: 100%; } }
+
+/* "check it yourself" box with the official registers */
+.checker { border: 2px solid var(--line); border-radius: 12px; padding: 18px 18px 14px; margin: 1.8em 0; }
+.checker__title { font-family: var(--sans); font-weight: 800; font-size: 1.05rem; margin: 0 0 4px; }
+.checker__sub { font-size: .88rem; color: var(--muted); margin: 0 0 14px; }
+.checker__item { padding: 10px 0; border-top: 1px solid var(--border); }
+.checker__flag { font-family: var(--sans); font-weight: 800; font-size: .72rem; text-transform: uppercase;
+  letter-spacing: .1em; color: var(--muted); }
+.checker__item a { display: block; font-family: var(--sans); font-weight: 700; margin-top: 3px; word-break: break-word; }
+.checker__item p { margin: 3px 0 0; font-size: .84rem; color: var(--muted); }
 @media (max-width: 620px) {
   .flow__chain { flex-direction: column; }
   .flow__arrow { flex: 0 0 22px; transform: rotate(90deg); }
